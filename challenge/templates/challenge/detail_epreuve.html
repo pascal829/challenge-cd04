@@ -1,0 +1,28 @@
+{% extends "challenge/base.html" %}
+{% block content %}
+<h2>{{ epreuve.get_discipline_display }} — {{ epreuve.date }}</h2>
+<p>Classement calculé automatiquement à partir des scores saisis, pour chaque
+catégorie où au moins un score a été enregistré.</p>
+
+{% for bloc in blocs %}
+  <h3>{{ bloc.titre }}</h3>
+  <table>
+    <thead>
+      <tr><th>Place</th><th>Archer</th><th>Club</th><th>Score</th><th>Points</th></tr>
+    </thead>
+    <tbody>
+      {% for ligne in bloc.lignes %}
+      <tr>
+        <td>{{ ligne.place }}</td>
+        <td>{{ ligne.archer.prenom }} {{ ligne.archer.nom }}</td>
+        <td>{{ ligne.archer.club.nom }}</td>
+        <td>{{ ligne.score }}</td>
+        <td>{{ ligne.points }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% empty %}
+  <p>Aucun score n'a encore été saisi pour cette épreuve.</p>
+{% endfor %}
+{% endblock %}

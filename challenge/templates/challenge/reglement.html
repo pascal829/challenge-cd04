@@ -1,0 +1,156 @@
+{% extends "challenge/base.html" %}
+{% load static %}
+{% block title %}Règlement — Challenge Jeunes Inter-Départemental (04/05){% endblock %}
+{% block content %}
+<style>
+  .reglement h3 { margin-top: 2rem; }
+  .reglement h4 { margin-top: 1.2rem; color: #1c5c3a; }
+  .reglement ul { padding-left: 1.3rem; }
+  .reglement li { margin-bottom: 0.3rem; }
+  .reglement .exemple { background: #eef5f0; border-left: 4px solid #1c5c3a; padding: 0.7rem 1rem; margin: 1rem 0; }
+  .reglement-entete { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
+  .reglement-entete img { max-height: 110px; width: auto; }
+</style>
+
+<div class="reglement">
+<div class="reglement-entete">
+  <img src="{% static 'challenge/img/logo.png' %}" alt="Logo du challenge">
+  <div>
+    <h2 style="margin-bottom:0;">Règlement du Challenge Jeunes Inter-Départemental (04 / 05)</h2>
+    <p style="margin-top:0.2rem;"><em>Édition 2027</em></p>
+  </div>
+</div>
+
+<h3>Article 1 : Organisation et Objectifs</h3>
+<p>Le présent challenge est organisé conjointement par les Comités Départementaux des
+Alpes-de-Haute-Provence (04) et les clubs des Hautes-Alpes (05). L'objectif est de dynamiser la
+pratique des jeunes archers, de leur faire découvrir la diversité des disciplines du
+tir à l'arc et de renforcer les liens entre les clubs affiliés à la Fédération
+Française de Tir à l'Arc (FFTA) de ces deux départements.</p>
+
+<h3>Article 2 : Conditions de Participation</h3>
+<p>Le challenge est exclusivement réservé aux archers :</p>
+<ul>
+  <li>Licenciés dans un club du 04 ou du 05 affilié à la FFTA.</li>
+  <li>À jour de leur licence pour la saison en cours.</li>
+  <li>Appartenant aux catégories d'âges et d'armes définies à l'Article 3.</li>
+</ul>
+
+<h3>Article 3 : Catégories et Distinctions</h3>
+<p>Pour chaque épreuve, un classement distinct est établi selon les critères suivants :</p>
+<ul>
+  <li><strong>Sexe</strong> : Filles (Femmes) / Garçons (Hommes)</li>
+  <li><strong>Catégories d'âge</strong> : U11, U13, U15 et U18</li>
+  <li><strong>Types d'arc</strong> :
+    <ul>
+      <li>Arc Nu (Barebow)</li>
+      <li>Arc avec Viseur (Classique / Poulies)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Article 4 : Les Épreuves du Challenge</h3>
+<p>Le challenge se dispute sur un ensemble de 7 épreuves représentant les différentes
+disciplines de la FFTA :</p>
+<ul>
+  <li>Tir en Salle</li>
+  <li>Tir Fédéral (Tir à l'Extérieur)</li>
+  <li>Tir de Campagne</li>
+  <li>Tir Nature</li>
+  <li>Tir 3D</li>
+  <li>Tir Beursault</li>
+  <li>Run Archery</li>
+</ul>
+
+<h3>Article 5 : Attribution des Points</h3>
+<p>À l'issue de chaque épreuve, les points sont attribués au sein de chaque catégorie
+(Âge / Arme / Sexe) selon le barème suivant :</p>
+<table>
+  <thead><tr><th>Place à l'épreuve</th><th>Points attribués</th></tr></thead>
+  <tbody>
+    <tr><td>1er</td><td>40 points</td></tr>
+    <tr><td>2ème</td><td>30 points</td></tr>
+    <tr><td>3ème</td><td>20 points</td></tr>
+    <tr><td>Tous les autres participants ayant terminé l'épreuve</td><td>10 points</td></tr>
+  </tbody>
+</table>
+<p><em>Note : En cas d'égalité de points sur une épreuve, les archers ex-æquo marquent
+les points de la place concernée.</em> (Dans l'application, ceci est géré automatiquement :
+en cas d'égalité de score, les archers concernés reçoivent la même place et les mêmes points.)</p>
+
+<h3>Article 6 : Classement Général et Récompenses</h3>
+<p>Le classement général est obtenu par l'addition des points marqués sur l'ensemble
+des 7 épreuves.</p>
+<p>Pour pouvoir prétendre au titre de <strong>Vainqueur du Challenge</strong> et
+recevoir la récompense finale, deux conditions strictes doivent être remplies :</p>
+<ul>
+  <li>Être classé 1er de sa catégorie (Âge / Arme / Sexe) à l'issue du calcul des points.</li>
+  <li><strong>Condition de compétitivité</strong> : Il doit y avoir au minimum deux
+  archers classés (ayant participé à au moins une épreuve) dans la même catégorie sur
+  l'ensemble du challenge. Un archer seul dans sa catégorie ne pourra pas prétendre à
+  la récompense finale du challenge.</li>
+</ul>
+
+<h3>Article 7 : Cas d'Égalité au Classement Général</h3>
+<p>En cas d'égalité de points au classement général final pour la première place
+d'une catégorie, les critères suivants seront appliqués pour départager les archers
+(dans l'ordre) :</p>
+<ol>
+  <li>Le plus grand nombre de victoires (places de 1er) sur les épreuves.</li>
+  <li>Le plus grand nombre de participations aux épreuves du challenge.</li>
+  <li>L'archer le plus jeune (critère de l'âge civil au moment de la dernière épreuve).</li>
+</ol>
+
+<h3>Article 8 : Litiges et Application du Règlement</h3>
+<p>L'organisation se réserve le droit de trancher tout cas non prévu par le présent
+règlement. Les décisions prises par le comité de pilotage du challenge (représentants
+des CD 04 et 05) seront sans appel.</p>
+
+<h3>Article 9 : Classement par Club</h3>
+<p>Un classement général des clubs du 04 et du 05 est mis en place afin de récompenser
+la performance collective et la mobilisation des structures. Ce classement se base sur
+deux types de points cumulés à chaque épreuve : les Points de Performance et les
+Points Bonus de Participation.</p>
+
+<h4>9.1 Points de Performance du Club</h4>
+<p>À l'issue de chaque épreuve, les performances individuelles des archers rapportent
+des points à leur club d'appartenance selon le barème suivant (cumulable pour toutes
+les catégories Âge / Arme / Sexe) :</p>
+<ul>
+  <li>Chaque 1er de catégorie apporte <strong>50 points</strong> à son club.</li>
+  <li>Chaque 2ème de catégorie apporte <strong>30 points</strong> à son club.</li>
+  <li>Chaque 3ème de catégorie apporte <strong>10 points</strong> à son club.</li>
+</ul>
+
+<h4>9.2 Points Bonus de Participation du Club</h4>
+<p>Pour encourager la participation de masse, un bonus est attribué aux clubs lors de
+chaque épreuve. Ce bonus dépend de la proportion de jeunes qu'un club engage par
+rapport au nombre total de participants de l'épreuve :</p>
+<p style="text-align:center; font-style: italic;">
+  Pourcentage de participation du club = (Nombre d'archers du club présents à l'épreuve
+  ÷ Nombre total d'archers inscrits à l'épreuve) × 100
+</p>
+<p>Les points bonus sont ensuite attribués au club selon la grille suivante :</p>
+<table>
+  <thead><tr><th>Proportion des participants du club</th><th>Bonus attribué</th></tr></thead>
+  <tbody>
+    <tr><td>Moins de 10 % des participants de l'épreuve</td><td>10 points bonus</td></tr>
+    <tr><td>De 10 % à 24,9 % des participants de l'épreuve</td><td>25 points bonus</td></tr>
+    <tr><td>De 25 % à 49,9 % des participants de l'épreuve</td><td>50 points bonus</td></tr>
+    <tr><td>50 % et plus des participants de l'épreuve</td><td>80 points bonus</td></tr>
+  </tbody>
+</table>
+<div class="exemple">
+  <strong>Exemple pratique :</strong> Si une épreuve compte 40 jeunes au total et que
+  le Club X vient avec 10 jeunes, le Club X représente 25 % des participants. Il
+  empoche automatiquement un bonus de 50 points pour son club, qui s'ajoutera aux
+  points de performance de ses podiums.
+</div>
+
+<h4>9.3 Vainqueur du Challenge des Clubs</h4>
+<p>Le club sacré "Vainqueur du Challenge" sera celui qui aura cumulé le plus grand
+nombre de points (Performance + Participation) à la fin des 7 épreuves. En cas
+d'égalité, le club ayant cumulé le plus grand nombre de premières places
+individuelles sur l'ensemble du challenge sera déclaré vainqueur.</p>
+</div>
+{% endblock %}

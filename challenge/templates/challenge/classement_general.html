@@ -1,0 +1,46 @@
+{% extends "challenge/base.html" %}
+{% block content %}
+<style>
+  .logo-club-mini { height: 22px; width: auto; vertical-align: middle; border-radius: 3px; margin-right: 0.4rem; }
+</style>
+<h2>Classement individuel par catégorie (Âge / Arme / Sexe)</h2>
+<p>Pour être déclaré vainqueur d'une catégorie, il faut être 1er ET qu'au moins
+deux archers de la catégorie aient participé au challenge (Article 6).</p>
+
+{% for bloc in blocs %}
+  <h3>{{ bloc.titre }}
+    {% if not bloc.competitif %}
+      <span class="non-competitif">(catégorie non compétitive : un seul archer classé)</span>
+    {% endif %}
+  </h3>
+  <table>
+    <thead>
+      <tr><th>Rang</th><th>Archer</th><th>Club</th><th>Points</th><th>Victoires</th><th>Participations</th></tr>
+    </thead>
+    <tbody>
+      {% for ligne in bloc.lignes %}
+      <tr>
+        <td>
+          {{ forloop.counter }}
+          {% if bloc.vainqueur and ligne.archer == bloc.vainqueur %}
+            <span class="badge-vainqueur">🏆 Vainqueur</span>
+          {% endif %}
+        </td>
+        <td>{{ ligne.archer.prenom }} {{ ligne.archer.nom }}</td>
+        <td>
+          {% if ligne.archer.club.logo %}
+            <img class="logo-club-mini" src="{{ ligne.archer.club.logo.url }}" alt="">
+          {% endif %}
+          {{ ligne.archer.club.nom }}
+        </td>
+        <td>{{ ligne.total_points }}</td>
+        <td>{{ ligne.nb_victoires }}</td>
+        <td>{{ ligne.nb_participations }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% empty %}
+  <p>Aucun résultat n'a encore été saisi.</p>
+{% endfor %}
+{% endblock %}

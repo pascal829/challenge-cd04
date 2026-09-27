@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Challenge Jeunes Inter-Départemental 04/05{% endblock %}</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f4f6f5; color: #1c2b21; }
+    header { background: #1c5c3a; color: white; padding: 1rem 2rem; }
+    header h1 { margin: 0; font-size: 1.3rem; }
+    nav a { color: white; margin-right: 1.5rem; text-decoration: none; font-weight: bold; }
+    nav { margin-top: 0.5rem; }
+    main { padding: 2rem; max-width: 960px; margin: 0 auto; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; background: white; }
+    th, td { border: 1px solid #d7ddd9; padding: 0.5rem 0.8rem; text-align: left; }
+    th { background: #e5efe8; }
+    h2 { border-bottom: 3px solid #1c5c3a; padding-bottom: 0.3rem; }
+    .badge-vainqueur { background: #d4af37; color: #3a2e00; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+    .non-competitif { color: #a04040; font-style: italic; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <center><img src="{% static 'challenge/img/logo.png' %}" alt="Logo Comité Sud-PACA" height="40"></center>
+    <center><h1>🏹 Challenge Jeunes Inter-Départemental (04 / 05) — Édition 2027</h1></center>
+    <nav>
+      <a href="{% url 'challenge:accueil' %}">Accueil</a>
+      <a href="{% url 'challenge:reglement' %}">Règlement</a>
+      <a href="{% url 'challenge:classement_general' %}">Classement individuel</a>
+      <a href="{% url 'challenge:classement_clubs' %}">Classement des clubs</a>
+      <a href="/admin/">Administration</a>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

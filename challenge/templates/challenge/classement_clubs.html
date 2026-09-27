@@ -1,0 +1,34 @@
+{% extends "challenge/base.html" %}
+{% block content %}
+<style>
+  .logo-club { height: 36px; width: auto; vertical-align: middle; border-radius: 4px; }
+</style>
+<h2>Classement général des clubs</h2>
+<p>Points cumulés : Performance (podiums individuels) + Bonus de participation
+de masse (Article 9). En cas d'égalité, le club avec le plus de 1ères places
+individuelles est déclaré vainqueur.</p>
+<table>
+  <thead>
+    <tr><th>Rang</th><th></th><th>Club</th><th>Points performance</th><th>Points bonus</th><th>Total</th><th>Victoires individuelles</th></tr>
+  </thead>
+  <tbody>
+    {% for ligne in lignes %}
+    <tr>
+      <td>{{ forloop.counter }}{% if forloop.first %} <span class="badge-vainqueur">🏆</span>{% endif %}</td>
+      <td>
+        {% if ligne.club.logo %}
+          <img class="logo-club" src="{{ ligne.club.logo.url }}" alt="Logo {{ ligne.club.nom }}">
+        {% endif %}
+      </td>
+      <td>{{ ligne.club.nom }}</td>
+      <td>{{ ligne.points_performance }}</td>
+      <td>{{ ligne.points_bonus }}</td>
+      <td><strong>{{ ligne.total_points }}</strong></td>
+      <td>{{ ligne.nb_victoires_individuelles }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="7">Aucun club enregistré.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

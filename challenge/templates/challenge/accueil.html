@@ -1,0 +1,23 @@
+{% extends "challenge/base.html" %}
+{% block content %}
+<h2>Les 7 épreuves du challenge</h2>
+<p>Le classement se dispute sur l'ensemble de ces épreuves (Article 4 du règlement).</p>
+<table>
+  <thead>
+    <tr><th>Discipline</th><th>Date</th><th>Lieu</th></tr>
+  </thead>
+  <tbody>
+    {% for epreuve in epreuves %}
+    <tr>
+      <td><a href="{% url 'challenge:detail_epreuve' epreuve.id %}">{{ epreuve.get_discipline_display }}</a></td>
+      <td>{{ epreuve.date }}</td>
+      <td>{{ epreuve.lieu|default:"—" }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">Aucune épreuve enregistrée pour l'instant.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p>Rendez-vous sur <a href="{% url 'challenge:classement_general' %}">le classement individuel</a>
+ou <a href="{% url 'challenge:classement_clubs' %}">le classement des clubs</a>.</p>
+{% endblock %}
