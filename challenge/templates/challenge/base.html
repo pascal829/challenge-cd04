@@ -21,15 +21,16 @@
 </head>
 <body>
   <header>
-    <center><img src="{% static 'challenge/img/logo.png' %}" alt="Logo Comité Sud-PACA" height="40"></center>
-    <center><h1>🏹 Challenge Jeunes Inter-Départemental (04 / 05) — Édition 2027</h1></center>
+    <center><img src="{% static 'challenge/img/logo.png' %}" alt="Logo Comité Sud-PACA" height="60"></center>
+    <center><h1>🏹 Challenge Jeunes Inter-Départemental (04 / 05) — Édition 2027 🏹</h1></center>
+    <center>
     <nav>
-      <a href="{% url 'challenge:accueil' %}">Accueil</a>
-      <a href="{% url 'challenge:reglement' %}">Règlement</a>
-      <a href="{% url 'challenge:classement_general' %}">Classement individuel</a>
-      <a href="{% url 'challenge:classement_clubs' %}">Classement des clubs</a>
-      <a href="/admin/">Administration</a>
-    </nav>
+      <a href="{% url 'challenge:accueil' %}"> 🎯 Accueil</a>
+      <a href="{% url 'challenge:reglement' %}"> 📊 Règlement</a>
+      <a href="{% url 'challenge:classement_general' %}"> 🥇 🥈 🥉 Classement individuel</a>
+      <a href="{% url 'challenge:classement_clubs' %}"> 🏆 Classement des clubs</a>
+      <a href="/admin/"> 📌 Administration</a>
+    </nav></center>
   </header>
   <main>
     {% block content %}{% endblock %}
